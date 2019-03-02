@@ -1,0 +1,28 @@
+{
+    "name": "jazzman/htaccess",
+    "license": "GPL-3.0",
+    "type": "wordpress-muplugin",
+    "description": "",
+    "authors": [
+        {
+            "name": "Vasyl Sokolyk",
+            "email": "vsokolyk@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Jazz-Man/htaccess/issues"
+    },
+    "require": {
+        "tivie/htaccess-parser": "^0.2.3"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "symfony/var-dumper": "^4.2",
+        "dg/composer-cleaner": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JazzMan\\Htaccess\\":"src"
+        }
+    }
+}
