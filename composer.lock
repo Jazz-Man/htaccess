@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "564fa6993714212f198e2f9e37cb76a4",
+    "content-hash": "c2ba806cd641a33c04f570ec07f6ae72",
     "packages": [
         {
             "name": "ralouphie/mimey",
@@ -541,6 +541,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.6"
+    },
     "platform-dev": []
 }
