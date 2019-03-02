@@ -3,6 +3,12 @@
     "license": "GPL-3.0",
     "type": "wordpress-muplugin",
     "description": "",
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "classmap-authoritative": true
+    },
     "authors": [
         {
             "name": "Vasyl Sokolyk",
@@ -13,8 +19,9 @@
         "issues": "https://github.com/Jazz-Man/htaccess/issues"
     },
     "require": {
-        "tivie/htaccess-parser": "^0.2.3",
-        "ralouphie/mimey": "^2.0"
+        "php": ">=5.6",
+        "ralouphie/mimey": "^2.0",
+        "tivie/htaccess-parser": "^0.2.3"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
