@@ -3,7 +3,13 @@
 namespace JazzMan\Htaccess;
 
 use JazzMan\Htaccess\Constant\AutoloadInterface;
+use Tivie\HtaccessParser\HtaccessContainer;
 
+/**
+ * Class App
+ *
+ * @package JazzMan\Htaccess
+ */
 class App
 {
 
@@ -15,7 +21,7 @@ class App
     /**
      * @var array
      */
-    private $container;
+    private $container = [];
 
     /**
      * App constructor.
@@ -28,6 +34,9 @@ class App
         ];
 
         $this->loadDependencies();
+
+        $this->buildHtaccess();
+
     }
 
     private function loadDependencies()
@@ -44,6 +53,17 @@ class App
                 }
             } catch (\ReflectionException $e) {
             }
+        }
+    }
+
+    private function buildHtaccess()
+    {
+        $this->container = array_filter($this->container);
+
+        if (!empty($this->container)){
+
+            $htaccess = new HtaccessContainer($this->container);
+            dump((string)$htaccess);
         }
     }
 }
