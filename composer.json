@@ -13,12 +13,20 @@
         "issues": "https://github.com/Jazz-Man/htaccess/issues"
     },
     "require": {
-        "tivie/htaccess-parser": "^0.2.3"
+        "tivie/htaccess-parser": "^0.2.3",
+        "ralouphie/mimey": "^2.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "symfony/var-dumper": "^4.2",
         "dg/composer-cleaner": "^2.0"
+    },
+    "extra":{
+        "cleaner-ignore":{
+            "ralouphie/mimey":[
+                "mime.*"
+            ]
+        }
     },
     "autoload": {
         "psr-4": {
