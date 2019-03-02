@@ -12,4 +12,9 @@ interface AutoloadInterface
      * @return mixed
      */
     public function load();
+
+    /**
+     * @return array
+     */
+    public function getData();
 }
