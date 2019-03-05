@@ -1,10 +1,13 @@
 <?php
 
 $root_dir = __DIR__;
-require_once "{$root_dir}/vendor/autoload.php";
 
-$htaccess_file = "{$root_dir}/.htaccess-old";
-$new_htaccess_file = "{$root_dir}/.htaccess";
+define('ROOT_DIR',__DIR__);
+
+require_once ROOT_DIR . '/vendor/autoload.php';
+
+$htaccess_file = ROOT_DIR . '/.htaccess-old';
+$new_htaccess_file = ROOT_DIR . '/.htaccess';
 $is_htaccess = file_exists($htaccess_file);
 
 
