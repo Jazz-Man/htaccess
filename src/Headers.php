@@ -49,8 +49,7 @@ class Headers implements AutoloadInterface
     private $headers_always;
 
     /**
-     * @return mixed
-     *
+     * @throws \Tivie\HtaccessParser\Exception\DomainException
      * @throws \Tivie\HtaccessParser\Exception\InvalidArgumentException
      */
     public function load()
@@ -88,6 +87,10 @@ class Headers implements AutoloadInterface
         return $this->data;
     }
 
+    /**
+     * @throws \Tivie\HtaccessParser\Exception\DomainException
+     * @throws \Tivie\HtaccessParser\Exception\InvalidArgumentException
+     */
     private function setHeaders()
     {
         foreach ($this->headers_set as $item) {
@@ -107,7 +110,6 @@ class Headers implements AutoloadInterface
             $this->headers->addChild($directive);
         }
 
-        $this->getPublicKeyPins();
 
         $this->data = $this->headers;
     }
@@ -116,24 +118,4 @@ class Headers implements AutoloadInterface
     {
     }
 
-    private function getPublicKeyPins()
-    {
-        $encrypt_key = '+NeXrQhAEhW}g8gf^y)Up8hAUKpue7wb';
-        $encrypt_string = 'staging.iconicjewellery.com';
-
-        $encrypter = new Encrypter($encrypt_key);
-
-        $sha256_primary = $encrypter->encryptString($encrypt_string);
-        $sha256_backup = $encrypter->encryptString($encrypt_string);
-
-        $directive = new Directive(self::$alwaysName, [
-            'Public-Key-Pins',
-            "pin-sha256=\"{$sha256_primary}\"",
-            "pin-sha256=\"{$sha256_backup}\"",
-            'max-age=5184000',
-            'includeSubDomains',
-        ]);
-
-        $this->headers->addChild($directive);
-    }
 }
