@@ -2,7 +2,7 @@
 
 namespace JazzMan\Htaccess;
 
-use JazzMan\Htaccess\Constant\AutoloadInterface;
+use JazzMan\AutoloadInterface\AutoloadInterface;
 use Tivie\HtaccessParser\Token\Block;
 use Tivie\HtaccessParser\Token\Directive;
 
@@ -77,15 +77,10 @@ class Headers implements AutoloadInterface
         ];
 
         $this->setHeaders();
+
+        app()->setContainer($this->data);
     }
 
-    /**
-     * @return array
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
 
     /**
      * @throws \Tivie\HtaccessParser\Exception\DomainException
@@ -112,10 +107,6 @@ class Headers implements AutoloadInterface
 
 
         $this->data = $this->headers;
-    }
-
-    private function getContentSecurityPolicy()
-    {
     }
 
 }
