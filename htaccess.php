@@ -1,14 +1,10 @@
 <?php
 
-$root_dir = __DIR__;
+define('APP_ROOT_DIR', __DIR__);
+define('APP_CONFIG_DIR', APP_ROOT_DIR.'/config');
 
-define('ROOT_DIR',__DIR__);
+require_once APP_ROOT_DIR.'/vendor/autoload.php';
 
-require_once ROOT_DIR . '/vendor/autoload.php';
+app_init();
 
-$htaccess_file = ROOT_DIR . '/.htaccess-old';
-$new_htaccess_file = ROOT_DIR . '/.htaccess';
-$is_htaccess = file_exists($htaccess_file);
-
-
-new \JazzMan\Htaccess\App();
+app_build_htaccess();
