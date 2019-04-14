@@ -1,0 +1,28 @@
+# 7G FIREWALL v1.0 20190124
+# @ https://perishablepress.com/7g-firewall/
+
+
+
+# Feedback
+
+Report bugs @ https://perishablepress.com/contact/
+
+
+
+# Changelog
+
+@ v1.1 20190204
+
+- Escapes "[" in Query String (line 27)
+- Removes "system" from Query String (line 47)
+- Removes "setup" from Request URI (line 88)
+- Removes "install" from Request URI (line 88)
+- Removes exabot, ahrefs, mj12bot, archive.org, seznambot
+
+@ v1.0 20190124
+
+- Initial release
+
+
+
+
