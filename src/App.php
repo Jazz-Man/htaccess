@@ -2,86 +2,74 @@
 
 namespace JazzMan\Htaccess;
 
-use JazzMan\Htaccess\Constant\AutoloadInterface;
-use JazzMan\Htaccess\Security\ContentSecurityPolicy;
 use JazzMan\Htaccess\Security\Firewall;
-use Tivie\HtaccessParser\HtaccessContainer;
-use Tivie\HtaccessParser\Token\Comment;
+use JazzMan\Traits\SingletonTrait;
 
 /**
  * Class App.
  */
 class App
 {
+    use SingletonTrait;
     /**
      * @var array
      */
     private $class_autoload;
-
     /**
      * @var array
      */
     private $container = [[]];
+    /**
+     * @var \Tivie\HtaccessParser\Parser
+     */
+    private $parser;
 
     /**
      * App constructor.
+     *
      */
     public function __construct()
     {
+
         $this->class_autoload = [
-//            Directives::class,
+            //            Directives::class,
             Firewall::class,
-//            Headers::class,
-//            ContentSecurityPolicy::class
+            Headers::class,
+            CrossOrigin::class,
+            //            ContentSecurityPolicy::class
         ];
-
-        $this->loadDependencies();
-
-        $this->buildHtaccess();
-    }
-
-    private function loadDependencies()
-    {
-        foreach ($this->class_autoload as $item) {
-            try {
-                $class = new \ReflectionClass($item);
-                if ($class->implementsInterface(AutoloadInterface::class)) {
-                    /** @var AutoloadInterface $instance */
-                    $instance = $class->newInstance();
-                    $instance->load();
-
-                    $data = $instance->getData();
-
-                    $this->container[] = \is_array($data) ? $data : [$data];
-                }
-            } catch (\ReflectionException $e) {
-            }
-        }
     }
 
     /**
-     * @param string $text
-     *
-     * @return \Tivie\HtaccessParser\Token\Comment
-     *
-     * @throws \Tivie\HtaccessParser\Exception\InvalidArgumentException
+     * @return array
      */
-    public static function addComments($text)
+    public function getContainer()
     {
-        $comment = new Comment();
-        $comment->setText((string) $text);
-
-        return $comment;
+        return $this->container;
     }
 
-    private function buildHtaccess()
+    /**
+     * @param array|mixed $container
+     */
+    public function setContainer($container)
     {
-//        $this->container = array_filter($this->container);
-
-        if (!empty($this->container)) {
-            $this->container = array_merge(...$this->container);
-            $htaccess = new HtaccessContainer($this->container);
-            dump((string) $htaccess);
-        }
+        $this->container[] = \is_array($container) ? $container : [$container];
     }
+
+    /**
+     * @return array
+     */
+    public function getClassAutoload()
+    {
+        return $this->class_autoload;
+    }
+
+    /**
+     * @return \Tivie\HtaccessParser\Parser
+     */
+    public function getParser()
+    {
+        return $this->parser;
+    }
+
 }
