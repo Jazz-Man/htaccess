@@ -4,33 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2ba806cd641a33c04f570ec07f6ae72",
+    "content-hash": "5feba8d76e8f72802cad465561299f2d",
     "packages": [
         {
-            "name": "ralouphie/mimey",
-            "version": "2.0.0",
+            "name": "jazzman/autoload-interface",
+            "version": "0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ralouphie/mimey.git",
-                "reference": "3af64e9ba0495aa9e3d22651b3b4e6dca06a4d43"
+                "url": "https://github.com/Jazz-Man/autoload-interface.git",
+                "reference": "2632d79d289e6a84166661cfa7ba3e79e71f1c0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/mimey/zipball/3af64e9ba0495aa9e3d22651b3b4e6dca06a4d43",
-                "reference": "3af64e9ba0495aa9e3d22651b3b4e6dca06a4d43",
+                "url": "https://api.github.com/repos/Jazz-Man/autoload-interface/zipball/2632d79d289e6a84166661cfa7ba3e79e71f1c0d",
+                "reference": "2632d79d289e6a84166661cfa7ba3e79e71f1c0d",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4|^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7.0",
-                "satooshi/php-coveralls": ">=1.0"
+                "php": ">=7.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Mimey\\": "src/"
+                    "JazzMan\\AutoloadInterface\\": ""
+                },
+                "files": [
+                    "helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Vasyl Sokolyk",
+                    "email": "vsokolyk@gmail.com"
+                }
+            ],
+            "time": "2019-04-04T14:34:47+00:00"
+        },
+        {
+            "name": "jazzman/singleton-trait",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jazz-Man/SingletonTrait.git",
+                "reference": "f4cf4aebc4480b5a769018bc970090faf6328b11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jazz-Man/SingletonTrait/zipball/f4cf4aebc4480b5a769018bc970090faf6328b11",
+                "reference": "f4cf4aebc4480b5a769018bc970090faf6328b11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JazzMan\\Traits\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -39,12 +70,11 @@
             ],
             "authors": [
                 {
-                    "name": "Ralph Khattar",
-                    "email": "ralph.khattar@gmail.com"
+                    "name": "Vasyl Sokolyk",
+                    "email": "vsokolyk@gmail.com"
                 }
             ],
-            "description": "PHP package for converting file extensions to MIME types and vice versa.",
-            "time": "2018-07-06T05:58:33+00:00"
+            "time": "2019-01-20T14:47:13+00:00"
         },
         {
             "name": "tivie/htaccess-parser",
