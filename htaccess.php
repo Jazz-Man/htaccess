@@ -1,10 +1,15 @@
 <?php
 
-define('APP_ROOT_DIR', __DIR__);
-define('APP_CONFIG_DIR', APP_ROOT_DIR.'/config');
+/*
+Plugin Name:  wp-htaccess
+Plugin URI:   https://github.com/Jazz-Man/htaccess
+Author:       Jazz-Man
+Author URI:   https://github.com/Jazz-Man
+*/
 
-require_once APP_ROOT_DIR.'/vendor/autoload.php';
+define('WP_HTACCESS_DIR', __DIR__);
+define('WP_HTACCESS_CONFIG_DIR', WP_HTACCESS_DIR . '/config');
 
-app_init();
+require_once WP_HTACCESS_DIR . '/vendor/autoload.php';
 
-app_build_htaccess();
+new \JazzMan\Htaccess\App();

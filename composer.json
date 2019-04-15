@@ -1,14 +1,19 @@
 {
     "name": "jazzman/htaccess",
     "license": "GPL-3.0",
+    "version": "1.0",
     "type": "wordpress-muplugin",
-    "description": "",
+    "description": "Boilerplate's .htaccess for WordPress",
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
         "optimize-autoloader": true,
         "classmap-authoritative": true
     },
+    "keywords": [
+        "wordpress",
+        "htaccess"
+    ],
     "authors": [
         {
             "name": "Vasyl Sokolyk",

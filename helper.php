@@ -1,7 +1,7 @@
 <?php
 
+
 use JazzMan\Htaccess\App;
-use Tivie\HtaccessParser\HtaccessContainer;
 use Tivie\HtaccessParser\Parser;
 use Tivie\HtaccessParser\Token\Comment;
 
@@ -12,16 +12,6 @@ if (!function_exists('app')) {
     function app()
     {
         return App::getInstance();
-    }
-}
-
-if (!function_exists('app_init')) {
-    function app_init()
-    {
-        $autoload = app()->getClassAutoload();
-        if (!empty($autoload)) {
-            app_autoload_classes($autoload);
-        }
     }
 }
 
@@ -43,8 +33,6 @@ if (!function_exists('app_add_htaccess_comments')) {
      * @param string $text
      *
      * @return \Tivie\HtaccessParser\Token\Comment
-     *
-     * @throws \Tivie\HtaccessParser\Exception\InvalidArgumentException
      */
     function app_add_htaccess_comments($text)
     {
@@ -52,47 +40,6 @@ if (!function_exists('app_add_htaccess_comments')) {
         $comment->setText((string) $text);
 
         return $comment;
-    }
-}
-
-if (!function_exists('app_htaccess_file')) {
-    /**
-     * @return \SplFileObject
-     */
-    function app_htaccess_file()
-    {
-        $htaccess_file = APP_ROOT_DIR.'/.htaccess';
-
-        return new \SplFileObject($htaccess_file, 'w+');
-    }
-}
-
-if (!function_exists('app_build_htaccess')) {
-    function app_build_htaccess()
-    {
-        $htaccess = '';
-
-        $container = array_filter(app()->getContainer());
-
-        if (!empty($container)) {
-            $container = array_merge(...$container);
-
-            foreach ($container as $item) {
-                if ($item instanceof  HtaccessContainer) {
-                    $htaccess .= $item;
-                }else{
-
-                    $htaccess .= new HtaccessContainer([$item]);
-                }
-            }
-
-        }
-
-        if (!empty($htaccess)){
-           $htaccess_file = app_htaccess_file();
-
-            $htaccess_file->fwrite($htaccess);
-        }
     }
 }
 
@@ -111,5 +58,31 @@ if (!function_exists('app_files_in_path')) {
         $ite->setMaxDepth($max_depth);
 
         return new RegexIterator($ite, $pattern);
+    }
+}
+
+if (!function_exists('app_locate_root_dir')) {
+    /**
+     * @return bool|string
+     */
+    function app_locate_root_dir()
+    {
+        static $path;
+
+        if (null === $path) {
+            $path = false;
+
+            if (file_exists(ABSPATH.'wp-config.php')) {
+                $path = ABSPATH;
+            } elseif (file_exists(dirname(ABSPATH).'/wp-config.php') && !file_exists(dirname(ABSPATH).'/wp-settings.php')) {
+                $path = dirname(ABSPATH);
+            }
+
+            if ($path) {
+                $path = realpath($path);
+            }
+        }
+
+        return $path;
     }
 }

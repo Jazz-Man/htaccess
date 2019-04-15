@@ -17,7 +17,7 @@ abstract class HtaccessBase implements AutoloadInterface
         if (null !== $this->config_dir && \is_string($this->config_dir)) {
             $dir = trim($this->config_dir, '/');
 
-            $files = app_files_in_path(APP_CONFIG_DIR."/{$dir}", "/\.conf$/");
+            $files = app_files_in_path(WP_HTACCESS_CONFIG_DIR."/{$dir}", "/\.conf$/");
 
             $parser = app_htaccess_parser();
 
