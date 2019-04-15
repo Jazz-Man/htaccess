@@ -39,6 +39,7 @@ class App
             Errors::class,
             InternetExplorer::class,
             Media::class,
+            Rewrites::class,
             WordPress::class
             //            ContentSecurityPolicy::class
         ];
