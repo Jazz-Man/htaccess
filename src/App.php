@@ -34,9 +34,10 @@ class App
         $this->class_autoload = [
             //            Directives::class,
             Firewall::class,
-            Headers::class,
+//            Headers::class,
             CrossOrigin::class,
             Errors::class,
+            InternetExplorer::class
             //            ContentSecurityPolicy::class
         ];
     }
