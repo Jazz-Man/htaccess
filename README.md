@@ -1,0 +1,2 @@
+# htaccess
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9630be5200d4ff1a49e45d68c64e5c8)](https://app.codacy.com/app/vsokolyk/htaccess?utm_source=github.com&utm_medium=referral&utm_content=Jazz-Man/htaccess&utm_campaign=Badge_Grade_Settings)
