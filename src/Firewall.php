@@ -1,8 +1,6 @@
 <?php
 
-namespace JazzMan\Htaccess\Security;
-
-use JazzMan\Htaccess\HtaccessBase;
+namespace JazzMan\Htaccess;
 
 /**
  * Class Firewall.
