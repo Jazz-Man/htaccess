@@ -2,7 +2,7 @@
 
 namespace JazzMan\Htaccess;
 
-use JazzMan\Htaccess\Security\Firewall;
+use JazzMan\Htaccess\Firewall;
 use JazzMan\Traits\SingletonTrait;
 
 /**
@@ -40,6 +40,7 @@ class App
             InternetExplorer::class,
             Media::class,
             Rewrites::class,
+            Security::class,
             WordPress::class
             //            ContentSecurityPolicy::class
         ];
