@@ -37,7 +37,9 @@ class App
 //            Headers::class,
             CrossOrigin::class,
             Errors::class,
-            InternetExplorer::class
+            InternetExplorer::class,
+            Media::class,
+            WordPress::class
             //            ContentSecurityPolicy::class
         ];
     }
