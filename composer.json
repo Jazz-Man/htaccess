@@ -25,16 +25,7 @@
         "tivie/htaccess-parser": "^0.2.3"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "symfony/var-dumper": "^4.2",
-        "dg/composer-cleaner": "^2.0"
-    },
-    "extra":{
-        "cleaner-ignore":{
-            "ralouphie/mimey":[
-                "mime.*"
-            ]
-        }
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {
