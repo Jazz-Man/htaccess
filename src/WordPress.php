@@ -21,11 +21,7 @@ class WordPress implements AutoloadInterface
         $file = 'base.conf';
 
         if (is_multisite()) {
-            if (\defined('SUBDOMAIN_INSTALL') && SUBDOMAIN_INSTALL) {
-                $file = 'multisite-subdomain.conf';
-            } else {
-                $file = 'multisite-subfolder.conf';
-            }
+            $file = \defined('SUBDOMAIN_INSTALL') && SUBDOMAIN_INSTALL ? 'multisite-subdomain.conf' : 'multisite-subfolder.conf';
         }
 
         $file = new \SplFileObject("{$dir}/{$file}");
