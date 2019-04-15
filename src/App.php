@@ -36,6 +36,7 @@ class App
             Firewall::class,
             Headers::class,
             CrossOrigin::class,
+            Errors::class,
             //            ContentSecurityPolicy::class
         ];
     }

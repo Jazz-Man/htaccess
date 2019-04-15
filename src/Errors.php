@@ -1,10 +1,11 @@
 <?php
 
-
 namespace JazzMan\Htaccess;
 
-
-class Errors
+/**
+ * Class Errors.
+ */
+class Errors extends HtaccessBase
 {
-
+    public $config_dir = 'error';
 }
