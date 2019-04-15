@@ -41,6 +41,7 @@ class App
             Media::class,
             Rewrites::class,
             Security::class,
+            Performance::class,
             WordPress::class
             //            ContentSecurityPolicy::class
         ];
