@@ -1,7 +1,6 @@
 {
     "name": "jazzman/htaccess",
     "license": "GPL-3.0",
-    "version": "1.0",
     "type": "wordpress-muplugin",
     "description": "Boilerplate's .htaccess for WordPress",
     "config": {
