@@ -4,6 +4,11 @@ namespace JazzMan\Htaccess;
 
 use RuntimeException;
 
+/**
+ * Class Encrypter
+ *
+ * @package JazzMan\Htaccess
+ */
 class Encrypter
 {
     /**
@@ -46,7 +51,10 @@ class Encrypter
     /**
      * @param mixed $value
      * @param bool  $serialize
-     **/
+     *
+     * @return string
+     * @throws \Exception
+     */
     public function encrypt($value, $serialize = true)
     {
         $iv = random_bytes(16);
@@ -70,6 +78,7 @@ class Encrypter
      * @param $value
      *
      * @return string
+     * @throws \Exception
      */
     public function encryptString($value)
     {
