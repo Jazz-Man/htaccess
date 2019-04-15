@@ -122,11 +122,7 @@ class App
             $container = array_merge(...$container);
 
             foreach ($container as $item) {
-                if ($item instanceof HtaccessContainer || \is_string($item)) {
-                    $htaccess .= $item;
-                } else {
-                    $htaccess .= new HtaccessContainer([$item]);
-                }
+                $htaccess = $item instanceof HtaccessContainer || \is_string($item) ? $htaccess . $item : $htaccess . new HtaccessContainer([$item]);
             }
 
             $htaccess .= PHP_EOL;
