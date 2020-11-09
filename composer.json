@@ -24,7 +24,7 @@
     },
     "require": {
         "php": ">=5.6",
-        "jazzman/autoload-interface": "^0.1.0",
+        "jazzman/autoload-interface": "^0.3",
         "jazzman/singleton-trait": "^1.1",
         "tivie/htaccess-parser": "^0.2.3"
     },
